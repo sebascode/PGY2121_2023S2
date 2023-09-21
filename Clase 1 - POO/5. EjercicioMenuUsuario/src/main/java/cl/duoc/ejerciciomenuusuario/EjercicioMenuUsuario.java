@@ -5,11 +5,33 @@ import java.util.Scanner;
 
 public class EjercicioMenuUsuario {
 
+    public static int encontrarUsuario(Usuario[] fuenteDatos, String nombre){
+        int indice = -1;
+        // len(fuenteDatos) --> Largo del array
+        for (int i = 0; i < fuenteDatos.length; i++) {
+            if(fuenteDatos[i] != null){
+                Usuario recorre = fuenteDatos[i];
+                if(recorre.getNombre().equals(nombre)){
+                    indice = i;
+                    break;
+                }
+            }
+        }
+        /*
+        if(indice >= 0){
+            return fuenteDatos[indice];
+        }
+        else{
+            return null;
+        }*/
+        return indice;
+    }
+    
     public static void main(String[] args) {
         // DECLARACION
         Scanner sc = new Scanner(System.in);
         // contenedor de 15 usuarios
-        Usuario[] arrUsuario = new Usuario[15];
+        Usuario[] arrUsuario = new Usuario[50];
         
         boolean salir = false;
         int indice = 0;
@@ -58,10 +80,46 @@ public class EjercicioMenuUsuario {
                     }
                     break;
                 case "3":
-                    System.out.println("Valor 3");
+                    // eliminar
+                    System.out.println("Ingrese nombre a eliminar:");
+                    String nombreEliminar = sc.nextLine();
+                    int aEliminar = encontrarUsuario(arrUsuario, nombreEliminar);
+                    if(aEliminar < 0){
+                        System.out.println("Usuario no encontrado. longy");
+                    }
+                    else{
+                        String nombreEliminado = arrUsuario[aEliminar].getNombre();
+                        arrUsuario[aEliminar] = null;
+                        System.out.println("Usuario '"+ nombreEliminado + "' a sido eliminado. pium pium");
+                    }
+                    
+                    
                     break;
                 case "4":
-                    System.out.println("Valor 4");
+                    // eliminar
+                    System.out.println("Ingrese nombre a editar:");
+                    String nombreEditar = sc.nextLine();
+                    int aEditar = encontrarUsuario(arrUsuario, nombreEditar);
+                    if(aEditar < 0){
+                        System.out.println("Usuario no encontrado. longy");
+                    }
+                    else {
+                        
+                        Usuario editar = arrUsuario[aEditar];
+                        
+                        System.out.println("Ingresar nombre:");
+                        editar.setNombre(sc.nextLine());
+
+                        System.out.println("Ingresar email:");
+                        editar.setEmail(sc.nextLine());
+
+                        System.out.println("Ingresar pass:");
+                        editar.setPassword(sc.nextLine());
+
+                        System.out.println("Ingresar rut:");
+                        editar.setRut(sc.nextLine());
+                    }
+                    
                     break;
                 case "x":
                     System.out.println("Chaolin");
