@@ -18,6 +18,9 @@ public class PersonaService implements IPersona {
     
     public PersonaService(){
         this.lista = new ArrayList<>();
+        
+        this.lista.add(new PersonaDTO("Joaquin","Amarillo"));
+        this.lista.add(new PersonaDTO("Sebastian","Negro como ex"));
     }
     
     @Override

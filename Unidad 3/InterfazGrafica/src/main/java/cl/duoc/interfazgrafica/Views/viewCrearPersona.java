@@ -26,10 +26,14 @@ public class viewCrearPersona extends javax.swing.JInternalFrame {
             servicio = new PersonaService();
     }
     
-    public viewCrearPersona(String nombre, String colorFavorito){
+    public viewCrearPersona(PersonaDTO p){
         initComponents();
         
+        if(servicio == null)
+            servicio = new PersonaService();
         
+        txtNombre.setText(p.getNombre());
+        cboColor.setSelectedItem(p.getColor());
     }
 
     /**

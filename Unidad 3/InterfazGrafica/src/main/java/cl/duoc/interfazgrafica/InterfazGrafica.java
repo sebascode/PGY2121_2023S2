@@ -5,6 +5,7 @@
 package cl.duoc.interfazgrafica;
 
 import cl.duoc.interfazgrafica.Views.viewCrearPersona;
+import cl.duoc.interfazgrafica.Views.viewListarPersona;
 
 /**
  *
@@ -64,12 +65,22 @@ public class InterfazGrafica extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Editar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Eliminar");
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Listar");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         menuMantenedor.add(jMenu1);
@@ -105,6 +116,27 @@ public class InterfazGrafica extends javax.swing.JFrame {
         // al objeto ventana le doy la orden que se muestre
         ventana.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        viewCrearPersona ventana = new viewCrearPersona();
+        ventana.setTitle("Editar Persona");
+        
+        // agregar este objeto a el escritorio
+        escritorio.add(ventana);
+        
+        // al objeto ventana le doy la orden que se muestre
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+        viewListarPersona ventana = new viewListarPersona();
+        
+        escritorio.add(ventana);
+        
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
