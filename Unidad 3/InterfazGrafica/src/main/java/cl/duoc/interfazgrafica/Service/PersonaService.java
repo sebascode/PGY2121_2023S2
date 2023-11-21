@@ -1,41 +1,55 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package cl.duoc.interfazgrafica.Service;
 
+import cl.duoc.interfazgrafica.DAO.ConexionDB;
 import cl.duoc.interfazgrafica.DTO.PersonaDTO;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- *
- * @author scode
- */
 public class PersonaService implements IPersona {
-
-    List<PersonaDTO> lista;
+    
+    ConexionDB db;
     
     public PersonaService(){
-        this.lista = new ArrayList<>();
-        
-        this.lista.add(new PersonaDTO("Joaquin","Amarillo"));
-        this.lista.add(new PersonaDTO("Sebastian","Negro como ex"));
+        db = new ConexionDB();
     }
     
     @Override
     public void Guardar(PersonaDTO p) {
-        this.lista.add(p);
+        try {
+            String query = "INSERT INTO `persona` (`nombre`, `color`) values ('"+ p.getNombre() +"', '"+ p.getColor() +"')";
+            System.out.println(query);
+            db.EjecutarSQL(query);
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error! " + ex.getMessage());
+        }
     }
 
     @Override
     public void Editar(int i, PersonaDTO p) {
-        this.lista.add(i, p);
+        try {
+            String query = "UPDATE `persona` SET `nombre` = '"+ p.getNombre() +"', `color`='"+ p.getColor() +"');";
+            db.EjecutarSQL(query);
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error!");
+        }
     }
 
     @Override
     public List<PersonaDTO> listar() {
-        return this.lista;
+        List<PersonaDTO> lista = new ArrayList<>();
+        try {
+            ResultSet rs = db.EjecutarQuery("select * from `persona`");
+            while(rs.next()){
+                lista.add(new PersonaDTO(rs.getString("nombre"), rs.getString("color")));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Hubo un error!");
+        }
+        return lista;
     }
 
     @Override

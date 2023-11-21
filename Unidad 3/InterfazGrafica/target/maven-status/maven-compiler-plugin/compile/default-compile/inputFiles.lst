@@ -1,1 +1,6 @@
-/Users/scode/NetBeansProjects/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/InterfazGrafica.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/InterfazGrafica.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/Views/viewCrearPersona.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/DTO/PersonaDTO.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/Service/PersonaService.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/Views/viewListarPersona.java
+/Users/scode/Source/PGY2121_2023S2/Unidad 3/InterfazGrafica/src/main/java/cl/duoc/interfazgrafica/Service/IPersona.java
