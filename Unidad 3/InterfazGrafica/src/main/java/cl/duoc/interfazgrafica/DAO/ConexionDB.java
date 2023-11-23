@@ -26,11 +26,6 @@ public class ConexionDB {
         }
     }
     
-    public void EjecutarSQL(String sql) throws SQLException {
-        Statement statement = connection.createStatement();
-        statement.execute(sql);
-    }
-    
     
     public ResultSet EjecutarQuery(String sql) throws SQLException {
         Statement statement = connection.createStatement();

@@ -6,7 +6,7 @@ package cl.duoc.interfazgrafica.Views;
 
 import cl.duoc.interfazgrafica.DTO.PersonaDTO;
 import cl.duoc.interfazgrafica.Service.IPersona;
-import cl.duoc.interfazgrafica.Service.PersonaService;
+import cl.duoc.interfazgrafica.Service.Impl.PersonaService;
 import java.util.List;
 import javax.swing.ComboBoxModel;
 

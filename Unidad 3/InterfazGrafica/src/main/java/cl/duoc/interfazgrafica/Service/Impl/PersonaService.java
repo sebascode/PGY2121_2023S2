@@ -1,13 +1,12 @@
-package cl.duoc.interfazgrafica.Service;
+package cl.duoc.interfazgrafica.Service.Impl;
 
 import cl.duoc.interfazgrafica.DAO.ConexionDB;
 import cl.duoc.interfazgrafica.DTO.PersonaDTO;
+import cl.duoc.interfazgrafica.Service.IPersona;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class PersonaService implements IPersona {
     
@@ -22,7 +21,7 @@ public class PersonaService implements IPersona {
         try {
             String query = "INSERT INTO `persona` (`nombre`, `color`) values ('"+ p.getNombre() +"', '"+ p.getColor() +"')";
             System.out.println(query);
-            db.EjecutarSQL(query);
+            db.EjecutarQuery(query);
         } catch (SQLException ex) {
             System.out.println("Hubo un error! " + ex.getMessage());
         }
@@ -32,7 +31,7 @@ public class PersonaService implements IPersona {
     public void Editar(int i, PersonaDTO p) {
         try {
             String query = "UPDATE `persona` SET `nombre` = '"+ p.getNombre() +"', `color`='"+ p.getColor() +"');";
-            db.EjecutarSQL(query);
+            db.EjecutarQuery(query);
         } catch (SQLException ex) {
             System.out.println("Hubo un error!");
         }
